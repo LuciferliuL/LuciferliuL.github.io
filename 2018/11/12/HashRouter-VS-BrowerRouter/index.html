@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HashRouter VS BrowerRouter 2种路由," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="RR4 推荐使用BrowerRouter 原因很简单：BrowerRouter 使用H5的History API，浏览器提供接口来修改浏览器历史记录，Hash是通过改变地址后面的hash来改变历史记录。History API 提供pushState() 和 replaceState() 方法来增加或者替换历史记录，而hash没有相应的方法。还有一个原因是hash部分不会被浏览器发送到服务端，不论是">
+<meta name="keywords" content="HashRouter VS BrowerRouter 2种路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashRouter VS BrowerRouter">
+<meta property="og:url" content="http://yoursite.com/2018/11/12/HashRouter-VS-BrowerRouter/index.html">
 <meta property="og:site_name" content="A">
+<meta property="og:description" content="RR4 推荐使用BrowerRouter 原因很简单：BrowerRouter 使用H5的History API，浏览器提供接口来修改浏览器历史记录，Hash是通过改变地址后面的hash来改变历史记录。History API 提供pushState() 和 replaceState() 方法来增加或者替换历史记录，而hash没有相应的方法。还有一个原因是hash部分不会被浏览器发送到服务端，不论是">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-19T02:45:11.224Z">
+<meta property="og:updated_time" content="2018-11-12T08:48:31.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="HashRouter VS BrowerRouter">
+<meta name="twitter:description" content="RR4 推荐使用BrowerRouter 原因很简单：BrowerRouter 使用H5的History API，浏览器提供接口来修改浏览器历史记录，Hash是通过改变地址后面的hash来改变历史记录。History API 提供pushState() 和 replaceState() 方法来增加或者替换历史记录，而hash没有相应的方法。还有一个原因是hash部分不会被浏览器发送到服务端，不论是">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/12/HashRouter-VS-BrowerRouter/"/>
 
 
 
 
 
-  <title>tags | A</title>
+  <title>HashRouter VS BrowerRouter | A</title>
   
 
 
@@ -247,40 +251,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/12/HashRouter-VS-BrowerRouter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                3 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/HashRouter-VS-BrowerRouter-2种路由/" style="font-size: 12px; color: #ccc">HashRouter VS BrowerRouter 2种路由</a> <a href="/tags/Map使用/" style="font-size: 12px; color: #ccc">Map使用</a> <a href="/tags/categories/" style="font-size: 12px; color: #ccc">categories</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">HashRouter VS BrowerRouter</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T16:34:11+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/12/HashRouter-VS-BrowerRouter/" class="leancloud_visitors" data-flag-title="HashRouter VS BrowerRouter">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="RR4-推荐使用BrowerRouter"><a href="#RR4-推荐使用BrowerRouter" class="headerlink" title="RR4 推荐使用BrowerRouter"></a>RR4 推荐使用BrowerRouter</h1><blockquote>
+<p>原因很简单：BrowerRouter 使用H5的History API，浏览器提供接口来修改浏览器历史记录，Hash是通过改变地址后面的hash来改变历史记录。History API 提供pushState() 和 replaceState() 方法来增加或者替换历史记录，而hash没有相应的方法。还有一个原因是hash部分不会被浏览器发送到服务端，不论是#XXX 还是#AAA ,服务端统一知道请求了index.html，不能获取细节。而History API可以提供，需要服务器支持。</p>
+</blockquote>
+<h1 id="问题：使用BrowerRouter，刷新显示404的原因分析"><a href="#问题：使用BrowerRouter，刷新显示404的原因分析" class="headerlink" title="问题：使用BrowerRouter，刷新显示404的原因分析"></a>问题：使用BrowerRouter，刷新显示404的原因分析</h1><blockquote>
+<p>SPA router跳转是前端js的改变location，并没有刷新页面访问后台。点击刷新，首先访问的是后台地址，然后加载前端，返回404就是后台并没有返回这个route需要的html。</p>
+</blockquote>
+<h1 id="解决：配置后台服务器，做通用路径处理，全部返回index-html"><a href="#解决：配置后台服务器，做通用路径处理，全部返回index-html" class="headerlink" title="解决：配置后台服务器，做通用路径处理，全部返回index.html"></a>解决：配置后台服务器，做通用路径处理，全部返回index.html</h1><blockquote>
+<p>对于使用nginx服务器，可以加上try_files配置</p>
+</blockquote>
+<p><code>location / {
+    ....
+    try_files $url /index.html
+}</code></p>
+<blockquote>
+<p>PS:build以后的路径也需要在webpack里面修改成绝对路径</p>
+</blockquote>
+<h1 id="在前端路由模式还在探索阶段，强烈建议继续使用HashRouter"><a href="#在前端路由模式还在探索阶段，强烈建议继续使用HashRouter" class="headerlink" title="在前端路由模式还在探索阶段，强烈建议继续使用HashRouter"></a>在前端路由模式还在探索阶段，强烈建议继续使用HashRouter</h1>
       
     </div>
     
     
     
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HashRouter-VS-BrowerRouter-2种路由/" rel="tag"><i class="fa fa-tag"></i> HashRouter VS BrowerRouter 2种路由</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/09/MAP-0/" rel="next" title="MAP">
+                <i class="fa fa-chevron-left"></i> MAP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -313,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -387,6 +540,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RR4-推荐使用BrowerRouter"><span class="nav-number">1.</span> <span class="nav-text">RR4 推荐使用BrowerRouter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题：使用BrowerRouter，刷新显示404的原因分析"><span class="nav-number">2.</span> <span class="nav-text">问题：使用BrowerRouter，刷新显示404的原因分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决：配置后台服务器，做通用路径处理，全部返回index-html"><span class="nav-number">3.</span> <span class="nav-text">解决：配置后台服务器，做通用路径处理，全部返回index.html</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在前端路由模式还在探索阶段，强烈建议继续使用HashRouter"><span class="nav-number">4.</span> <span class="nav-text">在前端路由模式还在探索阶段，强烈建议继续使用HashRouter</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
