@@ -259,6 +259,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/MAP-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/09/MAP-0/" itemprop="url">MAP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-09T16:22:42+08:00">
+                2018-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/09/MAP-0/" class="leancloud_visitors" data-flag-title="MAP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Map对象使用与数组对象去重"><a href="#Map对象使用与数组对象去重" class="headerlink" title="Map对象使用与数组对象去重"></a>Map对象使用与数组对象去重</h1><h2 id="Map-对象保存键值对。任何值-对象或者原始值-都可以作为一个键或一个值"><a href="#Map-对象保存键值对。任何值-对象或者原始值-都可以作为一个键或一个值" class="headerlink" title="Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值"></a>Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值</h2><blockquote>
+<p>语法  new Map([iterable])<br>参数：可以是数组也可以是对象，每个元素都以键值对的形式添加到Map</p>
+</blockquote>
+<h2 id="Map-实质"><a href="#Map-实质" class="headerlink" title="Map 实质"></a>Map 实质</h2><blockquote>
+<p>Map对象根据传入的元素进行迭代按顺序形成[key,value]的数组<br>key equality 比较是基于 SameValueZero 算法：NAN 与 NAN是相等的(NaN !== Nan),其余的都是根据===计算</p>
+</blockquote>
+<h2 id="Map-属性"><a href="#Map-属性" class="headerlink" title="Map 属性"></a>Map 属性</h2><blockquote>
+<p>Map.length  值为0</p>
+</blockquote>
+<h2 id="Map-实例"><a href="#Map-实例" class="headerlink" title="Map 实例"></a>Map 实例</h2><blockquote>
+<p>Map.prototype.clear()<br>移除Map对象的所有键/值对 。<br>Map.prototype.delete(key)<br>如果 Map 对象中存在该元素，则移除它并返回 true；否则如果该元素不存在则返回 false<br>Map.prototype.entries()<br>返回一个新的 Iterator 对象，它按插入顺序包含了Map对象中每个元素的 [key, value] 数组。<br>Map.prototype.forEach(callbackFn[, thisArg])<br>按插入顺序，为 Map对象里的每一键值对调用一次callbackFn函数。如果为forEach提供了thisArg，它将在每次回调中作为this值。<br>Map.prototype.get(key)<br>返回键对应的值，如果不存在，则返回undefined。<br>Map.prototype.has(key)<br>返回一个布尔值，表示Map实例是否包含键对应的值。<br>Map.prototype.keys()<br>返回一个新的 Iterator对象， 它按插入顺序包含了Map对象中每个元素的键 。<br>Map.prototype.set(key, value)<br>设置Map对象中键的值。返回该Map对象。<br>Map.prototype.values()<br>返回一个新的Iterator对象，它按插入顺序包含了Map对象中每个元素的值 。<br>Map.prototype<a href="">@@iterator</a><br>返回一个新的Iterator对象，它按插入顺序包含了Map对象中每个元素的 [key, value] 数组</p>
+</blockquote>
+<h2 id="使用Map实现一句话数组对象去重"><a href="#使用Map实现一句话数组对象去重" class="headerlink" title="使用Map实现一句话数组对象去重"></a>使用Map实现一句话数组对象去重</h2><p><code>un = (arr，protor) =&gt; {
+    const res = new Map();
+    return arr.filter((a) =&gt; !res.has(a.[protor]) &amp;&amp; res.set(a.[protor], 1))
+  }</code></p>
+<blockquote>
+<p>解读 ： </p>
+</blockquote>
+<p> 1 接受一个数组<br> 2 创建新的Map对象<br> 3 形参数组筛选<br> 4 res.has(protor) 是否拥有该属性 true返回false筛选为重复，false返回true<br> 5 进入false的Obj 给他一个属性用来下次判断是否重复<br> 6 返回筛选出来的数组</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/React-16-3-新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -582,7 +736,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
