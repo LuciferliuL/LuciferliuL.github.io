@@ -259,6 +259,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/React多入口配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/React多入口配置/" itemprop="url">React多入口配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T16:16:11+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/07/React多入口配置/" class="leancloud_visitors" data-flag-title="React多入口配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="React-多入口配置方法"><a href="#React-多入口配置方法" class="headerlink" title="React 多入口配置方法"></a>React 多入口配置方法</h1><blockquote>
+<p>react官方给出的解决办法是直接使用webpack来配置多入口，原react不支持多入口。</p>
+</blockquote>
+<h1 id="配置方案"><a href="#配置方案" class="headerlink" title="配置方案"></a>配置方案</h1><ol>
+<li>使用create-react-app 脚手架工具来创建react项目，打开react的eject.注意打开了就不能还原了</li>
+<li><p>修改webpack配置 webpack.dev的entry修改，使用对象，并且多key-value扩展多入口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;<span class="comment">//有多少个字段就有多少个入口，相应的要在src里面添加多个index.js一样的入口文件，html也需要</span></span><br><span class="line">    index:[</span><br><span class="line">        <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</span><br><span class="line">        paths.appIndexJs</span><br><span class="line">    ],</span><br><span class="line">    copy:[</span><br><span class="line">        <span class="built_in">require</span>.resolve(<span class="string">'react-dev-utils/webpackHotDevClient'</span>),</span><br><span class="line">        paths.appSrc + <span class="string">'/copy.js'</span><span class="comment">//appSrc  再paths里面配置.src  也可以使用写死的方法</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改webpack配置  webpack.dev的output修改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path:paths.appBuild,</span><br><span class="line">    pathinfo: <span class="literal">true</span>,</span><br><span class="line">    filename: <span class="string">'static/js/[name].bundle.js'</span>,<span class="comment">//添加了[name]为了后面打包的时候区分入口需要的文件</span></span><br><span class="line">    chunkFilename: <span class="string">'static/js/[name].chunk.js'</span>,</span><br><span class="line">    publicPath: publicPath,</span><br><span class="line">    devtoolModuleFilenameTemplate: <span class="function"><span class="params">info</span> =&gt;</span></span><br><span class="line">        path.resolve(info.absoluteResourcePath).replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改webpack配置 HtmlWebpackPlugin生成多个html</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">  inject: <span class="literal">true</span>,</span><br><span class="line">  template: paths.appHtml,</span><br><span class="line">  filename:<span class="string">'index.html'</span>,</span><br><span class="line">  chunks:[<span class="string">'index'</span>]</span><br><span class="line">&#125;),</span><br><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">  inject: <span class="literal">true</span>,</span><br><span class="line">  template: paths.appHtml,</span><br><span class="line">  filename:<span class="string">'copy.html'</span>,</span><br><span class="line">  chunks:[<span class="string">'copy'</span>]</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改webpack配置 webpackDevServer.config修改,保证url输出的正确</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">disableDotRule: <span class="literal">true</span>,</span><br><span class="line">  rewrites: [</span><br><span class="line">    &#123; <span class="attr">from</span>: <span class="regexp">/^\/copy.html/</span>, <span class="attr">to</span>: <span class="string">'/build/copy.html'</span> &#125;,<span class="comment">//生成的是url输入后入口js调用的映射</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生产环境配置重复2步骤即可</p>
+</li>
+</ol>
+<h1 id="配置完成后，每个入口都有自己对应的html，js，css等。"><a href="#配置完成后，每个入口都有自己对应的html，js，css等。" class="headerlink" title="配置完成后，每个入口都有自己对应的html，js，css等。"></a>配置完成后，每个入口都有自己对应的html，js，css等。</h1><h2 id="PS-研究了一个下午的成果"><a href="#PS-研究了一个下午的成果" class="headerlink" title="PS:研究了一个下午的成果"></a>PS:研究了一个下午的成果</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/12/HashRouter-VS-BrowerRouter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -877,7 +1031,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -890,7 +1044,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
